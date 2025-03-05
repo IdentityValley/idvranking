@@ -8,10 +8,11 @@
     <style>
         :root {
             --terminal-bg: #000000;
-            --terminal-text: #e0e0e0;
-            --terminal-accent: #a0a0a0;
-            --terminal-border: #a0a0a0;
+            --terminal-text: #ffffff;
+            --terminal-accent: #ffffff;
+            --terminal-border: #808080;
             --terminal-input: #1a1a1a;
+            --score-bar-color: #00ff00;
         }
 
         body {
@@ -20,29 +21,31 @@
             font-family: 'Courier New', monospace;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
+            font-size: 1.1rem;
             font-weight: 500;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2rem;
-            padding: 1rem;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
             border: 1px solid var(--terminal-border);
         }
 
         .header h1 {
             color: var(--terminal-accent);
             margin: 0;
+            font-size: 2rem;
         }
 
         .nav-links {
-            margin: 1rem 0;
+            margin: 2rem 0;
             text-align: center;
         }
 
@@ -50,18 +53,32 @@
             color: var(--terminal-text);
             text-decoration: none;
             margin: 0 1rem;
-            padding: 0.5rem;
+            padding: 0.8rem 1.5rem;
             border: 1px solid var(--terminal-border);
+            font-size: 1.1rem;
         }
 
         .nav-links a:hover {
-            background-color: var(--terminal-input);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         .company-info {
-            margin-bottom: 2rem;
-            padding: 1rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
             border: 1px solid var(--terminal-border);
+        }
+
+        .company-info h2 {
+            color: var(--terminal-accent);
+            margin-top: 0;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-sector-info {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            color: var(--terminal-accent);
         }
 
         .score-summary {
@@ -72,8 +89,9 @@
 
         .score-item {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
             border: 1px solid var(--terminal-border);
+            margin: 0 0.5rem;
         }
 
         .score-item .value {
@@ -84,19 +102,21 @@
         .indicator-group {
             margin-bottom: 2rem;
             border: 1px solid var(--terminal-border);
-            padding: 1rem;
+            padding: 1.5rem;
         }
 
         .indicator-group h3 {
             color: var(--terminal-accent);
             margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         .indicator-item {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 0.5rem;
+            padding: 1rem 0.5rem;
             border-bottom: 1px solid var(--terminal-border);
         }
 
@@ -118,21 +138,25 @@
         .score-bar {
             display: inline-block;
             height: 1em;
-            background-color: var(--terminal-accent);
+            background-color: var(--score-bar-color);
             margin-left: 1rem;
+            font-family: monospace;
+            color: var(--score-bar-color);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
         .score-progress {
             display: inline-block;
             margin-left: 0.5rem;
-            font-size: 0.9em;
+            font-size: 1rem;
             color: var(--terminal-accent);
         }
 
         .score-segments {
             display: flex;
-            gap: 4px;
-            margin: 0.5rem 0;
+            gap: 6px;
+            margin: 0.8rem 0;
             justify-content: flex-end;
         }
 
@@ -144,7 +168,8 @@
         }
 
         .score-segment.filled {
-            background-color: var(--terminal-accent);
+            background-color: var(--score-bar-color);
+            border-color: var(--score-bar-color);
         }
 
         .score-segment.na {
@@ -153,13 +178,14 @@
         }
 
         .indicator-comment {
-            margin-top: 0.5rem;
-            padding: 0.5rem;
+            margin-top: 1rem;
+            padding: 1rem;
             border: 1px solid var(--terminal-border);
             background-color: var(--terminal-input);
-            font-size: 0.9em;
+            font-size: 1rem;
             font-style: italic;
-            max-width: 80%;
+            max-width: 90%;
+            line-height: 1.6;
         }
 
         .not-applicable {
@@ -178,10 +204,11 @@
         }
 
         .company-comment {
-            margin: 1rem 0;
-            padding: 1rem;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
             border: 1px solid var(--terminal-border);
             background-color: var(--terminal-input);
+            line-height: 1.6;
         }
     </style>
 </head>
