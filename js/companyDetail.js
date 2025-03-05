@@ -97,6 +97,7 @@ class CompanyDetail {
         
         companyInfo.innerHTML = `
             <h2>${company.name}</h2>
+            ${company.sector ? `<div class="company-sector-info">Sector: ${company.sector}</div>` : ''}
             ${company.comment ? `<div class="company-comment">${company.comment}</div>` : ''}
             <div class="score-summary">
                 <div class="score-item">

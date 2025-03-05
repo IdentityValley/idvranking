@@ -115,6 +115,7 @@ class AdminForm {
                 const formData = new FormData(this.form);
                 const companyData = {
                     name: document.getElementById('company-name').value,
+                    sector: document.getElementById('company-sector').value,
                     comment: document.getElementById('company-comment').value,
                     indicators: {}
                 };

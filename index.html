@@ -86,6 +86,14 @@
             font-size: 1.1rem;
         }
 
+        .company-sector {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--terminal-accent);
+            margin-left: 1rem;
+            opacity: 0.8;
+        }
+
         .score {
             width: 60px;
             text-align: right;
@@ -146,6 +154,32 @@
         a:hover {
             color: var(--terminal-accent);
         }
+
+        .sector-filter {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .sector-filter span {
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .sector-filter select {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            border: 1px solid var(--terminal-border);
+            padding: 0.5rem 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .sector-filter select:focus {
+            outline: none;
+            border-color: var(--terminal-accent);
+        }
     </style>
 </head>
 <body>
@@ -158,6 +192,17 @@
             <a href="index.html">Rankings</a>
             <a href="about.html">About</a>
             <a href="admin.html">Admin</a>
+        </div>
+
+        <div class="sector-filter">
+            <span>Filter by Sector: </span>
+            <select id="sector-select">
+                <option value="All">All Sectors</option>
+                <option value="Telecoms">Telecoms</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Cloud Storage">Cloud Storage</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
 
         <div id="ranking-container">
