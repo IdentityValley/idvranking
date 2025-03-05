@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Governance Ranking</title>
+    <style>
+        :root {
+            --terminal-bg: #000000;
+            --terminal-text: #ffffff;
+            --terminal-accent: #ffffff;
+            --terminal-border: #808080;
+            --score-bar-color: #00ff00;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .header h1 {
+            color: var(--terminal-accent);
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .ranking-table th,
+        .ranking-table td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .ranking-table th {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-accent);
+            font-size: 1.2rem;
+        }
+
+        .ranking-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--terminal-border);
+            transition: background-color 0.2s;
+        }
+
+        .ranking-row:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .rank {
+            width: 40px;
+            text-align: right;
+            padding-right: 1.5rem;
+            color: var(--terminal-accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .company-name {
+            flex: 2;
+            font-size: 1.1rem;
+        }
+
+        .score {
+            width: 60px;
+            text-align: right;
+            padding-right: 1.5rem;
+            color: var(--terminal-accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .score-bar {
+            font-family: monospace;
+            color: var(--score-bar-color);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .error-message {
+            padding: 1.5rem;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .no-data {
+            padding: 2rem;
+            text-align: center;
+            color: var(--terminal-accent);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--terminal-border);
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--terminal-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Digital Governance Ranking</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Rankings</a>
+            <a href="about.html">About</a>
+            <a href="admin.html">Admin</a>
+        </div>
+
+        <div id="ranking-container">
+            <!-- Rankings will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Application Scripts -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/scoreCalculator.js"></script>
+    <script type="module" src="js/rankingDisplay.js"></script>
+</body>
+</html> 

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Digital Governance Ranking</title>
+    <style>
+        :root {
+            --terminal-bg: #000000;
+            --terminal-text: #ffffff;
+            --terminal-accent: #ffffff;
+            --terminal-border: #808080;
+            --score-bar-color: #00ff00;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .header h1 {
+            color: var(--terminal-accent);
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--terminal-border);
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .content {
+            padding: 2rem;
+            border: 1px solid var(--terminal-border);
+            margin-top: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            color: var(--terminal-accent);
+            margin-top: 0;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section h3 {
+            color: var(--terminal-accent);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section ul, .section ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .score-example {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border: 1px solid var(--terminal-border);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .score-segment {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--terminal-border);
+            background-color: var(--terminal-bg);
+        }
+
+        .score-segment.filled {
+            background-color: var(--score-bar-color);
+            border-color: var(--score-bar-color);
+        }
+
+        .score-segment.na {
+            background-color: var(--terminal-bg);
+            border-style: dashed;
+        }
+
+        a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--terminal-accent);
+        }
+
+        strong {
+            color: var(--terminal-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>About Digital Governance Ranking</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Rankings</a>
+            <a href="about.html">About</a>
+            <a href="admin.html">Admin</a>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Purpose</h2>
+                <p>The Digital Governance Ranking system evaluates companies based on their implementation of digital governance practices. This assessment helps identify organizations that demonstrate strong commitment to responsible digital transformation and ethical technology use.</p>
+            </div>
+
+            <div class="section">
+                <h2>Methodology</h2>
+                <p>Each indicator is assessed based on:</p>
+                <ul>
+                    <li>Documented policies and procedures</li>
+                    <li>Implementation evidence</li>
+                    <li>Employee feedback and training</li>
+                    <li>External verification where applicable</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Scoring System</h2>
+                <p>Each indicator is scored on a scale of 0-3:</p>
+                <ul>
+                    <li><strong>0</strong> - Not Implemented</li>
+                    <li><strong>1</strong> - Partially Implemented</li>
+                    <li><strong>2</strong> - Mostly Implemented</li>
+                    <li><strong>3</strong> - Fully Implemented</li>
+                    <li><strong>N/A</strong> - Not Applicable</li>
+                </ul>
+
+                <p>Example score visualization:</p>
+                <div class="score-example">
+                    <span>Score: 2/3</span>
+                    <div class="score-segment filled"></div>
+                    <div class="score-segment filled"></div>
+                    <div class="score-segment"></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Overall Score Calculation</h2>
+                <p>The overall score is calculated using the following steps:</p>
+                <ol>
+                    <li><strong>Filter Applicable Indicators:</strong> Only indicators with actual scores (excluding N/A) are considered in the calculation.</li>
+                    <li><strong>Calculate Average:</strong> The average of all applicable indicator scores is computed.</li>
+                    <li><strong>Scale to 0-10:</strong> The average (which is on a 0-3 scale) is converted to a 0-10 scale using the formula: (average / 3) × 10</li>
+                    <li><strong>Visual Representation:</strong> The final score is displayed as a 10-segment bar, where each filled segment represents one point.</li>
+                </ol>
+                <p>For example:</p>
+                <ul>
+                    <li>If a company has scores of 2, 3, and 1 on three applicable indicators:</li>
+                    <li>Average = (2 + 3 + 1) ÷ 3 = 2</li>
+                    <li>Scaled Score = (2 ÷ 3) × 10 ≈ 6.67</li>
+                    <li>This would be displayed as 6.7/10 with 7 filled segments in the score bar</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Categories</h2>
+                <h3>Core Indicators</h3>
+                <p>Essential digital governance practices covering:</p>
+                <ul>
+                    <li>Employee Digital Rights</li>
+                    <li>Data Protection</li>
+                    <li>Security Measures</li>
+                    <li>Cybersecurity</li>
+                </ul>
+
+                <h3>Specialized Indicators</h3>
+                <p>Advanced digital governance practices including:</p>
+                <ul>
+                    <li>Cloud Computing Governance</li>
+                    <li>AI Ethics</li>
+                    <li>Human-AI Collaboration</li>
+                    <li>Algorithmic Accountability</li>
+                    <li>Digital Sustainability</li>
+                    <li>Cognitive Computing Ethics</li>
+                    <li>Dark Pattern Prevention</li>
+                    <li>Intergenerational Digital Equity</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

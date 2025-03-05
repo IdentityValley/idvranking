@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Digital Governance Ranking</title>
+    <style>
+        :root {
+            --terminal-bg: #000000;
+            --terminal-text: #ffffff;
+            --terminal-accent: #ffffff;
+            --terminal-border: #a0a0a0;
+            --terminal-input: #1a1a1a;
+            --error-color: #ff0000;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .header h1 {
+            color: var(--terminal-accent);
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .terminal-form {
+            background-color: var(--terminal-input);
+            padding: 2rem;
+            border: 1px solid var(--terminal-border);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--terminal-accent);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            border: 1px solid var(--terminal-border);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .indicator-comment {
+            margin-top: 1rem;
+            min-height: 80px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--terminal-accent);
+        }
+
+        .submit-btn {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            border: 1px solid var(--terminal-border);
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--terminal-input);
+        }
+
+        .nav-links {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--terminal-border);
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--terminal-input);
+        }
+
+        .indicator-group {
+            border: 1px solid var(--terminal-border);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .indicator-group h3 {
+            color: var(--terminal-accent);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .error-message {
+            background-color: rgba(255, 0, 0, 0.1);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        small {
+            color: var(--terminal-text);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Admin Panel</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Rankings</a>
+            <a href="about.html">About</a>
+            <a href="admin.html">Admin</a>
+        </div>
+
+        <div class="terminal-form">
+            <form id="company-form">
+                <div class="form-group">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" id="company-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company-comment">Additional Comments</label>
+                    <textarea id="company-comment" placeholder="Add any additional comments or explanations..."></textarea>
+                </div>
+
+                <div id="indicators-container">
+                    <!-- Indicators will be dynamically inserted here -->
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Assessment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+    
+    <!-- Application Scripts -->
+    <script type="module" src="js/config.js"></script>
+    <script type="module" src="js/adminForm.js"></script>
+</body>
+</html> 

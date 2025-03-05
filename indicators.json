@@ -1,0 +1,188 @@
+{
+  "core_indicators": [
+    {
+      "id": "employee_security_training",
+      "name": "Employee Security Training Program",
+      "description": "Security awareness initiatives quality and frequency",
+      "verification_method": "Training program descriptions, certification rates, security awareness content samples",
+      "applicability_question": "Does the organization have employees with access to digital systems or data?",
+      "scoring_logic": {
+        "0": "Applicable but no public information",
+        "1": "Basic awareness mentioned",
+        "2": "Detailed program structure disclosed",
+        "3": "Comprehensive program with participation metrics and third-party validation"
+      }
+    },
+    {
+      "id": "data_minimization",
+      "name": "Data Minimization Documentation",
+      "description": "Clear policies on data collection limitations and retention periods",
+      "verification_method": "Privacy policies, data lifecycles, retention schedules",
+      "applicability_question": "Does the organization collect and store personal or sensitive data?",
+      "scoring_logic": {
+        "0": "Applicable but no minimization practices",
+        "1": "Basic retention periods",
+        "2": "Comprehensive data minimization strategy",
+        "3": "Demonstrable minimization with technical controls and audit trails"
+      }
+    },
+    {
+      "id": "security_privacy_documentation",
+      "name": "Security & Privacy Documentation Quality",
+      "description": "Clarity, accessibility, and comprehensiveness of security documentation",
+      "verification_method": "Help centers, knowledge bases, security guidance",
+      "applicability_question": "Does the organization provide digital services or handle user data?",
+      "scoring_logic": {
+        "0": "Applicable but minimal documentation",
+        "1": "Basic security information",
+        "2": "Comprehensive security guides",
+        "3": "Outstanding documentation with multiple formats and learning paths"
+      }
+    },
+    {
+      "id": "cyber_threat_intelligence",
+      "name": "Cyber Threat Intelligence Program",
+      "description": "Active monitoring and response to emerging threats",
+      "verification_method": "Threat intelligence publications, security advisories, vulnerability notifications",
+      "applicability_question": "Does the organization maintain digital systems that could be vulnerable to cybersecurity threats?",
+      "scoring_logic": {
+        "0": "Applicable but no visible program",
+        "1": "Basic threat monitoring",
+        "2": "Active threat intelligence program",
+        "3": "Advanced program with public sharing and contributions"
+      }
+    },
+    {
+      "id": "data_subject_rights",
+      "name": "Data Subject Rights Management",
+      "description": "Processes for handling privacy rights requests",
+      "verification_method": "Privacy rights portals, request metrics, process documentation",
+      "applicability_question": "Does the organization process personal data subject to privacy regulations?",
+      "scoring_logic": {
+        "0": "Applicable but manual/hidden process",
+        "1": "Basic request handling",
+        "2": "Self-service rights portal",
+        "3": "Comprehensive rights management with automation and metrics"
+      }
+    },
+    {
+      "id": "digital_dignity",
+      "name": "Digital Dignity Preservation",
+      "description": "Protection of human dignity in digital interactions",
+      "verification_method": "User respect policies, dignity impact assessments, humanistic design principles",
+      "applicability_question": "Does the organization provide digital services that interact with users?",
+      "scoring_logic": {
+        "0": "Applicable but no consideration",
+        "1": "Basic dignity statements",
+        "2": "Formal dignity preservation framework",
+        "3": "Comprehensive dignity-centered approach with case studies"
+      }
+    }
+  ],
+  "specialized_indicators": [
+    {
+      "id": "cloud_security",
+      "name": "Cloud Security Posture Management",
+      "description": "Public disclosure of cloud security controls and configurations",
+      "verification_method": "Cloud security frameworks adoption (AWS Well-Architected, Azure Security Benchmark), CSA STAR certification",
+      "applicability_question": "Does the organization use cloud services for core operations or data storage?",
+      "scoring_logic": {
+        "0": "Applicable but no disclosure",
+        "1": "Basic cloud security statements",
+        "2": "Detailed cloud controls documentation",
+        "3": "Third-party verified cloud security posture with public attestations"
+      }
+    },
+    {
+      "id": "ai_governance",
+      "name": "AI/ML Model Governance",
+      "description": "Framework for managing AI models throughout lifecycle",
+      "verification_method": "AI governance documentation, model cards, algorithm documentation",
+      "applicability_question": "Does the organization develop or deploy AI/ML systems?",
+      "scoring_logic": {
+        "0": "Applicable but no governance",
+        "1": "Basic AI oversight",
+        "2": "Formal model governance",
+        "3": "Comprehensive governance with external validation"
+      }
+    },
+    {
+      "id": "human_oversight",
+      "name": "Human Oversight of Automated Systems",
+      "description": "Mechanisms for human review of automated decisions",
+      "verification_method": "Appeal processes, human-in-the-loop documentation, intervention statistics",
+      "applicability_question": "Does the organization employ automated decision-making systems?",
+      "scoring_logic": {
+        "0": "Applicable but no oversight",
+        "1": "Basic human review mentions",
+        "2": "Formal oversight mechanisms",
+        "3": "Comprehensive human governance with transparency reporting"
+      }
+    },
+    {
+      "id": "algorithmic_fairness",
+      "name": "Algorithmic Fairness Assessment",
+      "description": "Evaluation and mitigation of algorithmic bias",
+      "verification_method": "Fairness documentation, bias mitigation strategies, demographic testing results",
+      "applicability_question": "Does the organization use algorithms for decision-making that affects users?",
+      "scoring_logic": {
+        "0": "Applicable but no fairness consideration",
+        "1": "Basic fairness statements",
+        "2": "Formal bias assessment methods",
+        "3": "Comprehensive fairness framework with independent validation"
+      }
+    },
+    {
+      "id": "digital_twins_ethics",
+      "name": "Digital Twin Ethics Documentation",
+      "description": "Ethical frameworks for digital replicas of physical systems or people",
+      "verification_method": "Ethics statements, digital twin policies, simulation governance documentation",
+      "applicability_question": "Does the organization create or use digital twins of systems or people?",
+      "scoring_logic": {
+        "0": "Applicable but no documentation",
+        "1": "Basic digital twin mentions",
+        "2": "Formal ethics framework for digital twins",
+        "3": "Comprehensive governance with stakeholder input and impact monitoring"
+      }
+    },
+    {
+      "id": "cognitive_load",
+      "name": "Cognitive Load Consideration",
+      "description": "Assessment of how digital interfaces respect human cognitive limitations",
+      "verification_method": "Interface design principles, usability testing reports, accessibility considerations",
+      "applicability_question": "Does the organization design user interfaces or information displays?",
+      "scoring_logic": {
+        "0": "Applicable but no consideration",
+        "1": "Basic usability mentions",
+        "2": "Formal cognitive load guidelines",
+        "3": "Comprehensive cognitive-aware design with testing evidence"
+      }
+    },
+    {
+      "id": "dark_pattern_avoidance",
+      "name": "Dark Pattern Avoidance Commitment",
+      "description": "Avoidance of manipulative design practices",
+      "verification_method": "Design ethics statements, dark pattern audits, user experience guidelines",
+      "applicability_question": "Does the organization design or operate user interfaces?",
+      "scoring_logic": {
+        "0": "Applicable but no commitment",
+        "1": "Basic ethical design mentions",
+        "2": "Formal dark pattern prohibition",
+        "3": "Comprehensive ethical design framework with external validation"
+      }
+    },
+    {
+      "id": "intergenerational_impact",
+      "name": "Intergenerational Impact Assessment",
+      "description": "Evaluation of how digital systems affect future generations",
+      "verification_method": "Long-term impact studies, future-oriented design principles, sustainability frameworks",
+      "applicability_question": "Does the organization develop systems with long-term societal implications?",
+      "scoring_logic": {
+        "0": "Applicable but no assessment",
+        "1": "Basic future considerations",
+        "2": "Formal intergenerational framework",
+        "3": "Comprehensive assessment with external stakeholder validation"
+      }
+    }
+  ]
+}
