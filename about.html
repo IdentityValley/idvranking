@@ -123,6 +123,28 @@
             border-style: dashed;
         }
 
+        .example-score-row {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .example-score-row .score {
+            width: 60px;
+            text-align: right;
+            color: var(--terminal-accent);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .example-score-row .score-bar {
+            font-family: monospace;
+            color: var(--score-bar-color);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
         a {
             color: var(--terminal-text);
             text-decoration: none;
@@ -176,8 +198,9 @@
                 
                 <div class="score-example">
                     <h3>Example Score Bar:</h3>
-                    <div class="score-bar" style="width: 66.7%; background-color: var(--terminal-accent);">
-                        <span class="score-text">6.67/10</span>
+                    <div class="example-score-row">
+                        <div class="score">6.7</div>
+                        <div class="score-bar">[███████░░░]</div>
                     </div>
                     <p class="score-description">This score represents a company with mixed performance across different indicators.</p>
                 </div>
