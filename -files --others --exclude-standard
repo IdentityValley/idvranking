@@ -1,0 +1,5 @@
+[33m8d82cad[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Implement sector functionality: Add sector selection in admin form, sector filtering on ranking page, and sector display on company detail page
+[33m04454e9[m Enhance company detail page with better spacing, green score segments, and improved readability
+[33m091e74a[m Update example score bar on About page to match main ranking page style
+[33m097ea5f[m Add security warning to Firebase configuration
+[33m564e937[m Update website title to Digital Responsibility Ranking and add score bar example to methodology section
