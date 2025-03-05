@@ -1,3 +1,8 @@
+// WARNING: This file contains sensitive Firebase configuration.
+// In a production environment, these values should be stored securely
+// and not committed to version control. For this demo application,
+// we're using a restricted Firebase project with limited permissions.
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAPOjCha1qQGw1pqSCpos2WGB-6dvDKqrk",
