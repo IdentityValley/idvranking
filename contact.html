@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Digital Responsibility Ranking</title>
+    <style>
+        :root {
+            --terminal-bg: #f0f0f0;
+            --terminal-text: #333333;
+            --terminal-accent: #666666;
+            --terminal-border: #cccccc;
+            --terminal-input: #ffffff;
+            --score-bar-color: #4CAF50;
+        }
+
+        body {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            border: 2px solid var(--terminal-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .header img {
+            height: 60px;
+            width: auto;
+        }
+
+        .header h1 {
+            color: var(--terminal-accent);
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: var(--terminal-text);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--terminal-border);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .terminal-window {
+            background-color: var(--terminal-input);
+            border: 2px solid var(--terminal-border);
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .terminal-header {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            padding: 0.5rem 1rem;
+            margin: -2rem -2rem 1rem -2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--terminal-border);
+        }
+
+        .terminal-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .terminal-control {
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--terminal-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+            color: var(--terminal-text);
+        }
+
+        .terminal-control.close:hover {
+            background-color: #ff0000;
+            color: white;
+        }
+
+        .terminal-content {
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+        }
+
+        .terminal-line {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .terminal-prompt {
+            color: var(--terminal-accent);
+            font-weight: 700;
+        }
+
+        .terminal-command {
+            color: var(--terminal-text);
+        }
+
+        .terminal-output {
+            color: var(--terminal-accent);
+            margin-left: 2rem;
+        }
+
+        .email-link {
+            color: var(--terminal-text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--terminal-accent);
+            font-weight: 600;
+        }
+
+        .footer a {
+            color: var(--terminal-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background-color: var(--terminal-text);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .easter-egg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--terminal-bg);
+            border: 2px solid var(--terminal-border);
+            padding: 2rem;
+            z-index: 1000;
+            display: none;
+            text-align: center;
+            max-width: 80%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .easter-egg.show {
+            display: block;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .easter-egg h2 {
+            color: var(--terminal-accent);
+            margin-bottom: 1rem;
+        }
+
+        .easter-egg p {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .easter-egg button {
+            background-color: var(--terminal-bg);
+            color: var(--terminal-text);
+            border: 2px solid var(--terminal-border);
+            padding: 0.8rem 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .easter-egg button:hover {
+            background-color: var(--terminal-text);
+            color: var(--terminal-bg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Logo_Identity_Valley_Icon.png" alt="Identity Valley Logo">
+            <h1>Digital Responsibility Ranking</h1>
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html">Rankings</a>
+            <a href="admin.html">+ Add</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-title">C:\> Contact Terminal</div>
+                <div class="terminal-controls">
+                    <div class="terminal-control">_</div>
+                    <div class="terminal-control">□</div>
+                    <div class="terminal-control close">×</div>
+                </div>
+            </div>
+            <div class="terminal-content">
+                <div class="terminal-line" style="animation-delay: 0.5s">
+                    <span class="terminal-prompt">C:\></span>
+                    <span class="terminal-command">contact</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 1s">
+                    <div class="terminal-output">
+                        Contact Information:
+                        Email: <a href="mailto:info@identityvalley.org" class="email-link">info@identityvalley.org</a>
+                    </div>
+                </div>
+                <div class="terminal-line" style="animation-delay: 1.5s">
+                    <span class="terminal-prompt">C:\></span>
+                    <span class="terminal-command">help</span>
+                </div>
+                <div class="terminal-line" style="animation-delay: 2s">
+                    <div class="terminal-output">
+                        For inquiries about the Digital Responsibility Ranking system,<br>
+                        please contact us at the email address above.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="easter-egg">
+        <h2>404: Easter Egg Found</h2>
+        <p>Congratulations! You've discovered a hidden feature that's actually visible in the source code.</p>
+        <p>Did you know? The close button in a terminal window is like a Schrödinger's cat - you never know if it will close the window or reveal an easter egg until you click it.</p>
+        <button onclick="this.parentElement.classList.remove('show')">[Close]</button>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 | A project by <a href="https://identityvalley.org" target="_blank">Identity Valley</a></p>
+    </div>
+
+    <script>
+        document.querySelector('.terminal-control.close').addEventListener('click', function() {
+            document.querySelector('.easter-egg').classList.add('show');
+        });
+    </script>
+</body>
+</html> 

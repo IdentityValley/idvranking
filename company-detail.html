@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         :root {
-            --terminal-bg: #000000;
-            --terminal-text: #ffffff;
-            --terminal-accent: #ffffff;
-            --terminal-border: #808080;
-            --terminal-input: #1a1a1a;
-            --score-bar-color: #00ff00;
+            --terminal-bg: #f0f0f0;
+            --terminal-text: #333333;
+            --terminal-accent: #666666;
+            --terminal-border: #cccccc;
+            --terminal-input: #ffffff;
+            --score-bar-color: #4CAF50;
         }
 
         body {
@@ -23,11 +23,11 @@
             padding: 20px;
             line-height: 1.8;
             font-size: 1.1rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -35,13 +35,23 @@
             text-align: center;
             margin-bottom: 3rem;
             padding: 1.5rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .header img {
+            height: 60px;
+            width: auto;
         }
 
         .header h1 {
             color: var(--terminal-accent);
             margin: 0;
             font-size: 2rem;
+            font-weight: 700;
         }
 
         .nav-links {
@@ -54,8 +64,9 @@
             text-decoration: none;
             margin: 0 1rem;
             padding: 0.8rem 1.5rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .nav-links a:hover {
@@ -65,7 +76,7 @@
         .company-info {
             margin-bottom: 3rem;
             padding: 2rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
         }
 
         .company-info h2 {
@@ -73,12 +84,14 @@
             margin-top: 0;
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .company-sector-info {
             margin: 1rem 0;
             font-size: 1.1rem;
             color: var(--terminal-accent);
+            font-weight: 600;
         }
 
         .score-summary {
@@ -90,18 +103,19 @@
         .score-item {
             text-align: center;
             padding: 1.5rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             margin: 0 0.5rem;
         }
 
         .score-item .value {
             font-size: 2rem;
             color: var(--terminal-accent);
+            font-weight: 700;
         }
 
         .indicator-group {
             margin-bottom: 2rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             padding: 1.5rem;
         }
 
@@ -110,6 +124,7 @@
             margin-top: 0;
             margin-bottom: 1rem;
             font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .indicator-item {
@@ -117,7 +132,7 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 1rem 0.5rem;
-            border-bottom: 1px solid var(--terminal-border);
+            border-bottom: 2px solid var(--terminal-border);
         }
 
         .indicator-item:last-child {
@@ -127,12 +142,14 @@
         .indicator-name {
             flex: 3;
             margin-right: 1rem;
+            font-weight: 600;
         }
 
         .indicator-score {
             flex: 1;
             text-align: right;
             min-width: 120px;
+            font-weight: 600;
         }
 
         .score-bar {
@@ -144,6 +161,7 @@
             color: var(--score-bar-color);
             font-size: 1.1rem;
             letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .score-progress {
@@ -151,6 +169,7 @@
             margin-left: 0.5rem;
             font-size: 1rem;
             color: var(--terminal-accent);
+            font-weight: 600;
         }
 
         .score-segments {
@@ -163,7 +182,7 @@
         .score-segment {
             width: 32px;
             height: 32px;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             background-color: var(--terminal-bg);
         }
 
@@ -180,23 +199,26 @@
         .indicator-comment {
             margin-top: 1rem;
             padding: 1rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             background-color: var(--terminal-input);
             font-size: 1rem;
             font-style: italic;
             max-width: 90%;
             line-height: 1.6;
+            font-weight: 600;
         }
 
         .not-applicable {
             color: var(--terminal-text);
             opacity: 0.7;
             font-style: italic;
+            font-weight: 600;
         }
 
         a {
             color: var(--terminal-text);
             text-decoration: none;
+            font-weight: 600;
         }
 
         a:hover {
@@ -206,22 +228,44 @@
         .company-comment {
             margin: 1.5rem 0;
             padding: 1.5rem;
-            border: 1px solid var(--terminal-border);
+            border: 2px solid var(--terminal-border);
             background-color: var(--terminal-input);
             line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--terminal-accent);
+            font-weight: 600;
+        }
+
+        .footer a {
+            color: var(--terminal-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
+            <img src="Logo_Identity_Valley_Icon.png" alt="Identity Valley Logo">
             <h1>Digital Responsibility Ranking</h1>
         </div>
         
         <div class="nav-links">
             <a href="index.html">Rankings</a>
+            <a href="admin.html">+ Add</a>
             <a href="about.html">About</a>
-            <a href="admin.html">Admin</a>
+            <a href="contact.html">Contact</a>
         </div>
 
         <div id="company-details">
@@ -230,6 +274,10 @@
         <div id="delete-section" class="delete-section">
             <button id="delete-company" class="delete-button">Delete Company</button>
         </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 | A project by <a href="https://identityvalley.org" target="_blank">Identity Valley</a></p>
     </div>
 
     <!-- Firebase SDK -->

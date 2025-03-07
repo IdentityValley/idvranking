@@ -1,14 +1,30 @@
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333333;
+    --secondary-text: #666666;
+    --border-color: #cccccc;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
 .delete-section {
     margin-top: 2rem;
     padding: 1rem;
     text-align: center;
-    border-top: 1px solid #fff;
+    border-top: 1px solid var(--border-color);
 }
 
 .delete-button {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #fff;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: 1px solid var(--border-color);
     padding: 0.5rem 1rem;
     font-family: 'Courier New', monospace;
     cursor: pointer;
@@ -19,11 +35,18 @@
 }
 
 .delete-button:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .delete-button:active {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--secondary-text);
+    color: var(--background-color);
+}
+
+/* Main container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 } 
