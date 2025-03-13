@@ -60,7 +60,9 @@ class AdminForm {
                 const label = document.createElement('label');
                 label.htmlFor = indicator.id;
                 label.innerHTML = `
-                    <strong>${indicator.name}</strong><br>
+                    <strong>${indicator.name}</strong>
+                    ${createGoalBadges(indicator.id)}
+                    <br>
                     <small>${indicator.description}</small><br>
                     <small>Verification: ${indicator.verification_method}</small>
                 `;
@@ -160,4 +162,73 @@ class AdminForm {
 // Initialize the form when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new AdminForm();
-}); 
+});
+
+// Function to get relevant goal badges for an indicator
+function getGoalBadges(indicatorId) {
+    const badgeMap = {
+        // Core Indicators
+        'employee_security_training': ['cybersecurity', 'digital_literacy'],
+        'data_minimization': ['privacy', 'data_fairness'],
+        'security_privacy_documentation': ['cybersecurity', 'privacy', 'transparency'],
+        'cyber_threat_intelligence': ['cybersecurity'],
+        'data_subject_rights': ['privacy', 'human_agency'],
+        'digital_dignity': ['human_agency', 'data_fairness'],
+        
+        // Specialized Indicators
+        'cloud_security': ['cybersecurity'],
+        'ai_governance': ['trustworthy_algorithms', 'transparency'],
+        'human_oversight': ['human_agency', 'trustworthy_algorithms'],
+        'algorithmic_fairness': ['data_fairness', 'trustworthy_algorithms'],
+        'digital_twins_ethics': ['human_agency', 'privacy'],
+        'cognitive_load': ['human_agency'],
+        'dark_pattern_avoidance': ['human_agency', 'transparency'],
+        'intergenerational_impact': ['human_agency', 'data_fairness']
+    };
+
+    return badgeMap[indicatorId] || [];
+}
+
+// Function to create goal badge HTML
+function createGoalBadges(indicatorId) {
+    const badges = getGoalBadges(indicatorId);
+    if (badges.length === 0) return '';
+
+    const badgeHtml = badges.map(badge => `
+        <img src="media/${badge}.png" 
+             alt="${badge.replace('_', ' ')}" 
+             class="goal-badge"
+             title="${badge.replace('_', ' ')}"
+             style="width: 24px; height: 24px; max-width: 24px; max-height: 24px; object-fit: contain;"
+             loading="lazy">
+    `).join('');
+
+    return `<div class="goal-badges" style="display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; align-items: center;">${badgeHtml}</div>`;
+}
+
+// Update the form generation code
+function generateForm() {
+    // ... existing code ...
+    
+    // Inside the loop where indicators are added
+    indicators.forEach(indicator => {
+        const indicatorHtml = `
+            <div class="form-group">
+                <label for="${indicator.id}">${indicator.name}</label>
+                ${createGoalBadges(indicator.id)}
+                <select id="${indicator.id}" name="${indicator.id}" required>
+                    <option value="">Select rating</option>
+                    ${Object.entries(indicator.scoring_logic).map(([score, desc]) => 
+                        `<option value="${score}">${score} - ${desc}</option>`
+                    ).join('')}
+                </select>
+                <div class="indicator-description">${indicator.description}</div>
+            </div>
+        `;
+        indicatorsContainer.insertAdjacentHTML('beforeend', indicatorHtml);
+    });
+    
+    // ... rest of existing code ...
+}
+
+// ... rest of existing code ... 

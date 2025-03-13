@@ -49,4 +49,72 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* Digital Responsibility Goal Badges */
+.goal-badges {
+    display: inline-flex !important;
+    gap: 4px !important;
+    margin-left: 8px !important;
+    vertical-align: middle !important;
+    align-items: center !important;
+}
+
+.goal-badge {
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 4px !important;
+    object-fit: contain !important;
+    transition: all 0.2s ease !important;
+    vertical-align: middle !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
+
+.goal-badge:hover {
+    transform: scale(1.5) !important;
+    z-index: 10 !important;
+}
+
+/* Larger badges for company detail page */
+.indicator-item .goal-badges {
+    margin-left: 12px !important;
+}
+
+.indicator-item .goal-badge {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
+
+/* Small badges for evaluation form */
+label .goal-badges {
+    margin-left: 8px !important;
+}
+
+label .goal-badge {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
+
+.goal-badge-tooltip {
+    position: absolute !important;
+    background: #333 !important;
+    color: white !important;
+    padding: 4px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    pointer-events: none !important;
+    z-index: 1000 !important;
+    white-space: nowrap !important;
+    display: none !important;
+    transform: translateY(-100%) !important;
+    margin-top: -8px !important;
+}
+
+.goal-badge:hover .goal-badge-tooltip {
+    display: block !important;
 } 

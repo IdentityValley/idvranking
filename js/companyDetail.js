@@ -153,7 +153,8 @@ class CompanyDetail {
                 indicatorItem.innerHTML = `
                     <div class="indicator-name">
                         <strong>${indicator.name}</strong>
-                        <div>${indicator.description}</div>
+                        ${createGoalBadges(indicator.id)}
+                        <div style="font-size: 0.9em; color: var(--secondary-text); margin-top: 4px;">${indicator.description}</div>
                         ${comment ? `<div class="indicator-comment">${comment}</div>` : ''}
                     </div>
                     <div class="indicator-score">
@@ -202,4 +203,71 @@ class CompanyDetail {
 // Initialize the display when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new CompanyDetail();
-}); 
+});
+
+// Function to get relevant goal badges for an indicator
+function getGoalBadges(indicatorId) {
+    const badgeMap = {
+        // Core Indicators
+        'employee_security_training': ['cybersecurity', 'digital_literacy'],
+        'data_minimization': ['privacy', 'data_fairness'],
+        'security_privacy_documentation': ['cybersecurity', 'privacy', 'transparency'],
+        'cyber_threat_intelligence': ['cybersecurity'],
+        'data_subject_rights': ['privacy', 'human_agency'],
+        'digital_dignity': ['human_agency', 'data_fairness'],
+        
+        // Specialized Indicators
+        'cloud_security': ['cybersecurity'],
+        'ai_governance': ['trustworthy_algorithms', 'transparency'],
+        'human_oversight': ['human_agency', 'trustworthy_algorithms'],
+        'algorithmic_fairness': ['data_fairness', 'trustworthy_algorithms'],
+        'digital_twins_ethics': ['human_agency', 'privacy'],
+        'cognitive_load': ['human_agency'],
+        'dark_pattern_avoidance': ['human_agency', 'transparency'],
+        'intergenerational_impact': ['human_agency', 'data_fairness']
+    };
+
+    return badgeMap[indicatorId] || [];
+}
+
+// Function to create goal badge HTML
+function createGoalBadges(indicatorId) {
+    const badges = getGoalBadges(indicatorId);
+    if (badges.length === 0) return '';
+
+    const badgeHtml = badges.map(badge => `
+        <img src="media/${badge}.png" 
+             alt="${badge.replace('_', ' ')}" 
+             class="goal-badge"
+             title="${badge.replace('_', ' ')}">
+    `).join('');
+
+    return `<div class="goal-badges">${badgeHtml}</div>`;
+}
+
+// Update the display function
+function displayCompanyDetails(company) {
+    // ... existing code ...
+    
+    // Inside the loop where indicators are displayed
+    Object.entries(company.indicators).forEach(([indicatorId, rating]) => {
+        const indicator = indicators.find(i => i.id === indicatorId);
+        if (indicator) {
+            const indicatorHtml = `
+                <div class="indicator-item">
+                    <div class="indicator-header">
+                        <h3>${indicator.name}</h3>
+                        ${createGoalBadges(indicatorId)}
+                    </div>
+                    <div class="rating">Rating: ${rating}</div>
+                    <div class="description">${indicator.description}</div>
+                </div>
+            `;
+            indicatorsContainer.insertAdjacentHTML('beforeend', indicatorHtml);
+        }
+    });
+    
+    // ... rest of existing code ...
+}
+
+// ... rest of existing code ... 
