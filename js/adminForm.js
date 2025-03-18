@@ -17,8 +17,15 @@ class AdminForm {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const data = await response.json();
-            // Combine core and specialized indicators
-            this.indicators = [...data.core_indicators, ...data.specialized_indicators];
+            console.log('Loaded data:', data); // Debug log
+            
+            // Get the indicators array from the data
+            this.indicators = data.indicators || [];
+            
+            if (this.indicators.length === 0) {
+                throw new Error('No indicators found in the data');
+            }
+            
             this.generateFormFields();
             console.log('Indicators loaded successfully');
         } catch (error) {
@@ -28,24 +35,77 @@ class AdminForm {
     }
 
     generateFormFields() {
+        if (!this.indicators) {
+            console.error('No indicators loaded');
+            return;
+        }
+
+        // Clear any existing fields
+        this.indicatorsContainer.innerHTML = '';
+
+        // Create introductory text
+        const introDiv = document.createElement('div');
+        introDiv.className = 'intro-text';
+        introDiv.innerHTML = `
+            <h3>Digital Responsibility Evaluation Form</h3>
+            
+            <p>This evaluation form is designed to assess a company's digital responsibility practices 
+            across 8 key categories and 25 specific indicators.</p>
+            
+            <p>Each indicator is scored on a scale of 0-4, with detailed scoring criteria provided 
+            to guide your assessment.</p>
+            
+            <p><small>The colored badges represent the digital responsibility goals: 
+            <img src="media/cybersecurity.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Cybersecurity, 
+            <img src="media/digital_literacy.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Digital Literacy, 
+            <img src="media/data_fairness.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Data Fairness, 
+            <img src="media/privacy.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Privacy, 
+            <img src="media/transparency.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Transparency, 
+            <img src="media/human_agency.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Human Agency,
+            <img src="media/trustworthy_algorithms.png" style="width: 20px; height: 20px; vertical-align: middle; margin: 0 2px;"> Trustworthy Algorithms</small></p>
+        `;
+        this.indicatorsContainer.appendChild(introDiv);
+
         // Group indicators by category
         const categories = {
-            'Core Indicators': this.indicators.filter(i => i.id.startsWith('employee_') || 
-                                                         i.id.startsWith('data_') || 
-                                                         i.id.startsWith('security_') || 
-                                                         i.id.startsWith('cyber_')),
-            'Specialized Indicators': this.indicators.filter(i => i.id.startsWith('cloud_') || 
-                                                               i.id.startsWith('ai_') || 
-                                                               i.id.startsWith('human_') || 
-                                                               i.id.startsWith('algorithmic_') || 
-                                                               i.id.startsWith('digital_') || 
-                                                               i.id.startsWith('cognitive_') || 
-                                                               i.id.startsWith('dark_') || 
-                                                               i.id.startsWith('intergenerational_'))
+            'Security & Risk Management': this.indicators.filter(i => 
+                i.id.startsWith('cyber_') || 
+                i.id.startsWith('incident_') || 
+                i.id.startsWith('vulnerability_')),
+            'Data Governance & Privacy': this.indicators.filter(i => 
+                i.id.startsWith('data_')),
+            'Identity & Access': this.indicators.filter(i => 
+                i.id.startsWith('identity_') || 
+                i.id.startsWith('user_') || 
+                i.id.startsWith('digital_identity_')),
+            'Development & System Quality': this.indicators.filter(i => 
+                i.id.startsWith('secure_') || 
+                i.id.startsWith('service_') || 
+                i.id.startsWith('interoperability_')),
+            'Education & Documentation': this.indicators.filter(i => 
+                i.id.startsWith('employee_') || 
+                i.id.startsWith('customer_') || 
+                i.id.startsWith('security_privacy_')),
+            'Inclusivity & Accessibility': this.indicators.filter(i => 
+                i.id.startsWith('digital_accessibility_') || 
+                i.id.startsWith('digital_literacy_')),
+            'Ethical Governance': this.indicators.filter(i => 
+                i.id.startsWith('responsible_') || 
+                i.id.startsWith('stakeholder_') || 
+                i.id.startsWith('algorithmic_') || 
+                i.id.startsWith('open_source_')),
+            'Sustainable Digital Practices': this.indicators.filter(i => 
+                i.id.startsWith('responsible_sunsetting_') || 
+                i.id.startsWith('digital_sustainability_') || 
+                i.id.startsWith('content_moderation_') || 
+                i.id.startsWith('youth_protection_') || 
+                i.id.startsWith('digital_workforce_'))
         };
 
         // Generate form fields for each category
         Object.entries(categories).forEach(([category, indicators]) => {
+            if (indicators.length === 0) return; // Skip empty categories
+            
             const categoryGroup = document.createElement('div');
             categoryGroup.className = 'indicator-group';
             
@@ -57,29 +117,44 @@ class AdminForm {
                 const formGroup = document.createElement('div');
                 formGroup.className = 'form-group';
 
-                const label = document.createElement('label');
-                label.htmlFor = indicator.id;
-                label.innerHTML = `
+                // Create label with name and badges
+                const labelHeader = document.createElement('label');
+                labelHeader.htmlFor = indicator.id;
+                labelHeader.innerHTML = `
                     <strong>${indicator.name}</strong>
-                    ${createGoalBadges(indicator.id)}
-                    <br>
-                    <small>${indicator.description}</small><br>
-                    <small>Verification: ${indicator.verification_method}</small>
+                    ${this.createGoalBadges(indicator.goals)}
                 `;
+                formGroup.appendChild(labelHeader);
 
+                // Add description as separate element
+                const description = document.createElement('small');
+                description.textContent = indicator.description;
+                description.style.display = 'block';
+                description.style.marginTop = '8px';
+                formGroup.appendChild(description);
+
+                // Add verification as separate element with bold label
+                const verification = document.createElement('small');
+                verification.innerHTML = `<strong>Verification:</strong> ${indicator.verification}`;
+                verification.style.display = 'block';
+                verification.style.marginTop = '12px';
+                verification.style.marginBottom = '16px';
+                formGroup.appendChild(verification);
+
+                // Create select element
                 const select = document.createElement('select');
                 select.id = indicator.id;
                 select.name = indicator.id;
                 select.required = true;
+                select.style.marginTop = '8px';
 
-                // Add options
+                // Add options based on scoring
                 const options = [
                     { value: '', text: 'Select a score' },
-                    { value: '0', text: '0 - Not Implemented' },
-                    { value: '1', text: '1 - Partially Implemented' },
-                    { value: '2', text: '2 - Mostly Implemented' },
-                    { value: '3', text: '3 - Fully Implemented' },
-                    { value: 'N/A', text: 'N/A - Not Applicable' }
+                    ...Object.entries(indicator.scoring).map(([score, desc]) => ({
+                        value: score,
+                        text: `${score} - ${desc}`
+                    }))
                 ];
 
                 options.forEach(option => {
@@ -89,15 +164,17 @@ class AdminForm {
                     select.appendChild(optionElement);
                 });
 
+                formGroup.appendChild(select);
+
+                // Add comment textarea
                 const commentInput = document.createElement('textarea');
                 commentInput.id = `${indicator.id}_comment`;
                 commentInput.name = `${indicator.id}_comment`;
                 commentInput.placeholder = 'Add a comment about this indicator...';
                 commentInput.className = 'indicator-comment';
-
-                formGroup.appendChild(label);
-                formGroup.appendChild(select);
+                commentInput.style.marginTop = '12px';
                 formGroup.appendChild(commentInput);
+
                 categoryGroup.appendChild(formGroup);
             });
 
@@ -157,78 +234,34 @@ class AdminForm {
         errorDiv.textContent = message;
         this.indicatorsContainer.insertBefore(errorDiv, this.indicatorsContainer.firstChild);
     }
+
+    createGoalBadges(goals) {
+        const badgeMap = {
+            'cybersecurity': 'media/cybersecurity.png',
+            'digital_literacy': 'media/digital_literacy.png',
+            'data_fairness': 'media/data_fairness.png',
+            'privacy': 'media/privacy.png',
+            'transparency': 'media/transparency.png',
+            'human_agency': 'media/human_agency.png',
+            'trustworthy_algorithms': 'media/trustworthy_algorithms.png'
+        };
+
+        if (!goals || goals.length === 0) return '';
+
+        const badgeHtml = goals.map(goal => `
+            <img src="${badgeMap[goal] || 'media/default.png'}" 
+                 alt="${goal.replace('_', ' ')}" 
+                 class="goal-badge"
+                 title="${goal.replace('_', ' ')}"
+                 style="width: 24px; height: 24px; max-width: 24px; max-height: 24px; object-fit: contain;"
+                 loading="lazy">
+        `).join('');
+
+        return `<div class="goal-badges" style="display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; align-items: center;">${badgeHtml}</div>`;
+    }
 }
 
 // Initialize the form when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new AdminForm();
-});
-
-// Function to get relevant goal badges for an indicator
-function getGoalBadges(indicatorId) {
-    const badgeMap = {
-        // Core Indicators
-        'employee_security_training': ['cybersecurity', 'digital_literacy'],
-        'data_minimization': ['privacy', 'data_fairness'],
-        'security_privacy_documentation': ['cybersecurity', 'privacy', 'transparency'],
-        'cyber_threat_intelligence': ['cybersecurity'],
-        'data_subject_rights': ['privacy', 'human_agency'],
-        'digital_dignity': ['human_agency', 'data_fairness'],
-        
-        // Specialized Indicators
-        'cloud_security': ['cybersecurity'],
-        'ai_governance': ['trustworthy_algorithms', 'transparency'],
-        'human_oversight': ['human_agency', 'trustworthy_algorithms'],
-        'algorithmic_fairness': ['data_fairness', 'trustworthy_algorithms'],
-        'digital_twins_ethics': ['human_agency', 'privacy'],
-        'cognitive_load': ['human_agency'],
-        'dark_pattern_avoidance': ['human_agency', 'transparency'],
-        'intergenerational_impact': ['human_agency', 'data_fairness']
-    };
-
-    return badgeMap[indicatorId] || [];
-}
-
-// Function to create goal badge HTML
-function createGoalBadges(indicatorId) {
-    const badges = getGoalBadges(indicatorId);
-    if (badges.length === 0) return '';
-
-    const badgeHtml = badges.map(badge => `
-        <img src="media/${badge}.png" 
-             alt="${badge.replace('_', ' ')}" 
-             class="goal-badge"
-             title="${badge.replace('_', ' ')}"
-             style="width: 24px; height: 24px; max-width: 24px; max-height: 24px; object-fit: contain;"
-             loading="lazy">
-    `).join('');
-
-    return `<div class="goal-badges" style="display: inline-flex; gap: 4px; margin-left: 8px; vertical-align: middle; align-items: center;">${badgeHtml}</div>`;
-}
-
-// Update the form generation code
-function generateForm() {
-    // ... existing code ...
-    
-    // Inside the loop where indicators are added
-    indicators.forEach(indicator => {
-        const indicatorHtml = `
-            <div class="form-group">
-                <label for="${indicator.id}">${indicator.name}</label>
-                ${createGoalBadges(indicator.id)}
-                <select id="${indicator.id}" name="${indicator.id}" required>
-                    <option value="">Select rating</option>
-                    ${Object.entries(indicator.scoring_logic).map(([score, desc]) => 
-                        `<option value="${score}">${score} - ${desc}</option>`
-                    ).join('')}
-                </select>
-                <div class="indicator-description">${indicator.description}</div>
-            </div>
-        `;
-        indicatorsContainer.insertAdjacentHTML('beforeend', indicatorHtml);
-    });
-    
-    // ... rest of existing code ...
-}
-
-// ... rest of existing code ... 
+}); 

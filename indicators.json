@@ -1,188 +1,336 @@
-{
-  "core_indicators": [
-    {
-      "id": "employee_security_training",
-      "name": "Employee Security Training Program",
-      "description": "Security awareness initiatives quality and frequency",
-      "verification_method": "Training program descriptions, certification rates, security awareness content samples",
-      "applicability_question": "Does the organization have employees with access to digital systems or data?",
-      "scoring_logic": {
-        "0": "Applicable but no public information",
-        "1": "Basic awareness mentioned",
-        "2": "Detailed program structure disclosed",
-        "3": "Comprehensive program with participation metrics and third-party validation"
-      }
-    },
-    {
-      "id": "data_minimization",
-      "name": "Data Minimization Documentation",
-      "description": "Clear policies on data collection limitations and retention periods",
-      "verification_method": "Privacy policies, data lifecycles, retention schedules",
-      "applicability_question": "Does the organization collect and store personal or sensitive data?",
-      "scoring_logic": {
-        "0": "Applicable but no minimization practices",
-        "1": "Basic retention periods",
-        "2": "Comprehensive data minimization strategy",
-        "3": "Demonstrable minimization with technical controls and audit trails"
-      }
-    },
-    {
-      "id": "security_privacy_documentation",
-      "name": "Security & Privacy Documentation Quality",
-      "description": "Clarity, accessibility, and comprehensiveness of security documentation",
-      "verification_method": "Help centers, knowledge bases, security guidance",
-      "applicability_question": "Does the organization provide digital services or handle user data?",
-      "scoring_logic": {
-        "0": "Applicable but minimal documentation",
-        "1": "Basic security information",
-        "2": "Comprehensive security guides",
-        "3": "Outstanding documentation with multiple formats and learning paths"
-      }
-    },
-    {
-      "id": "cyber_threat_intelligence",
-      "name": "Cyber Threat Intelligence Program",
-      "description": "Active monitoring and response to emerging threats",
-      "verification_method": "Threat intelligence publications, security advisories, vulnerability notifications",
-      "applicability_question": "Does the organization maintain digital systems that could be vulnerable to cybersecurity threats?",
-      "scoring_logic": {
-        "0": "Applicable but no visible program",
-        "1": "Basic threat monitoring",
-        "2": "Active threat intelligence program",
-        "3": "Advanced program with public sharing and contributions"
-      }
-    },
-    {
-      "id": "data_subject_rights",
-      "name": "Data Subject Rights Management",
-      "description": "Processes for handling privacy rights requests",
-      "verification_method": "Privacy rights portals, request metrics, process documentation",
-      "applicability_question": "Does the organization process personal data subject to privacy regulations?",
-      "scoring_logic": {
-        "0": "Applicable but manual/hidden process",
-        "1": "Basic request handling",
-        "2": "Self-service rights portal",
-        "3": "Comprehensive rights management with automation and metrics"
-      }
-    },
-    {
-      "id": "digital_dignity",
-      "name": "Digital Dignity Preservation",
-      "description": "Protection of human dignity in digital interactions",
-      "verification_method": "User respect policies, dignity impact assessments, humanistic design principles",
-      "applicability_question": "Does the organization provide digital services that interact with users?",
-      "scoring_logic": {
-        "0": "Applicable but no consideration",
-        "1": "Basic dignity statements",
-        "2": "Formal dignity preservation framework",
-        "3": "Comprehensive dignity-centered approach with case studies"
-      }
-    }
-  ],
-  "specialized_indicators": [
-    {
-      "id": "cloud_security",
-      "name": "Cloud Security Posture Management",
-      "description": "Public disclosure of cloud security controls and configurations",
-      "verification_method": "Cloud security frameworks adoption (AWS Well-Architected, Azure Security Benchmark), CSA STAR certification",
-      "applicability_question": "Does the organization use cloud services for core operations or data storage?",
-      "scoring_logic": {
-        "0": "Applicable but no disclosure",
-        "1": "Basic cloud security statements",
-        "2": "Detailed cloud controls documentation",
-        "3": "Third-party verified cloud security posture with public attestations"
-      }
-    },
-    {
-      "id": "ai_governance",
-      "name": "AI/ML Model Governance",
-      "description": "Framework for managing AI models throughout lifecycle",
-      "verification_method": "AI governance documentation, model cards, algorithm documentation",
-      "applicability_question": "Does the organization develop or deploy AI/ML systems?",
-      "scoring_logic": {
-        "0": "Applicable but no governance",
-        "1": "Basic AI oversight",
-        "2": "Formal model governance",
-        "3": "Comprehensive governance with external validation"
-      }
-    },
-    {
-      "id": "human_oversight",
-      "name": "Human Oversight of Automated Systems",
-      "description": "Mechanisms for human review of automated decisions",
-      "verification_method": "Appeal processes, human-in-the-loop documentation, intervention statistics",
-      "applicability_question": "Does the organization employ automated decision-making systems?",
-      "scoring_logic": {
-        "0": "Applicable but no oversight",
-        "1": "Basic human review mentions",
-        "2": "Formal oversight mechanisms",
-        "3": "Comprehensive human governance with transparency reporting"
-      }
-    },
-    {
-      "id": "algorithmic_fairness",
-      "name": "Algorithmic Fairness Assessment",
-      "description": "Evaluation and mitigation of algorithmic bias",
-      "verification_method": "Fairness documentation, bias mitigation strategies, demographic testing results",
-      "applicability_question": "Does the organization use algorithms for decision-making that affects users?",
-      "scoring_logic": {
-        "0": "Applicable but no fairness consideration",
-        "1": "Basic fairness statements",
-        "2": "Formal bias assessment methods",
-        "3": "Comprehensive fairness framework with independent validation"
-      }
-    },
-    {
-      "id": "digital_twins_ethics",
-      "name": "Digital Twin Ethics Documentation",
-      "description": "Ethical frameworks for digital replicas of physical systems or people",
-      "verification_method": "Ethics statements, digital twin policies, simulation governance documentation",
-      "applicability_question": "Does the organization create or use digital twins of systems or people?",
-      "scoring_logic": {
-        "0": "Applicable but no documentation",
-        "1": "Basic digital twin mentions",
-        "2": "Formal ethics framework for digital twins",
-        "3": "Comprehensive governance with stakeholder input and impact monitoring"
-      }
-    },
-    {
-      "id": "cognitive_load",
-      "name": "Cognitive Load Consideration",
-      "description": "Assessment of how digital interfaces respect human cognitive limitations",
-      "verification_method": "Interface design principles, usability testing reports, accessibility considerations",
-      "applicability_question": "Does the organization design user interfaces or information displays?",
-      "scoring_logic": {
-        "0": "Applicable but no consideration",
-        "1": "Basic usability mentions",
-        "2": "Formal cognitive load guidelines",
-        "3": "Comprehensive cognitive-aware design with testing evidence"
-      }
-    },
-    {
-      "id": "dark_pattern_avoidance",
-      "name": "Dark Pattern Avoidance Commitment",
-      "description": "Avoidance of manipulative design practices",
-      "verification_method": "Design ethics statements, dark pattern audits, user experience guidelines",
-      "applicability_question": "Does the organization design or operate user interfaces?",
-      "scoring_logic": {
-        "0": "Applicable but no commitment",
-        "1": "Basic ethical design mentions",
-        "2": "Formal dark pattern prohibition",
-        "3": "Comprehensive ethical design framework with external validation"
-      }
-    },
-    {
-      "id": "intergenerational_impact",
-      "name": "Intergenerational Impact Assessment",
-      "description": "Evaluation of how digital systems affect future generations",
-      "verification_method": "Long-term impact studies, future-oriented design principles, sustainability frameworks",
-      "applicability_question": "Does the organization develop systems with long-term societal implications?",
-      "scoring_logic": {
-        "0": "Applicable but no assessment",
-        "1": "Basic future considerations",
-        "2": "Formal intergenerational framework",
-        "3": "Comprehensive assessment with external stakeholder validation"
-      }
-    }
-  ]
+﻿{
+    "sectors": [
+        "Technology",
+        "Finance",
+        "Healthcare",
+        "Education",
+        "Government",
+        "Retail",
+        "Manufacturing",
+        "Other"
+    ],
+    "indicators": [
+        {
+            "id": "cyber_threat_intelligence",
+            "name": "Cyber Threat Intelligence Program",
+            "description": "Active monitoring and response to emerging cybersecurity threats with structured intelligence gathering.\n\nEffective programs include regular updates and public advisories when appropriate.",
+            "verification": "Threat intelligence publications, security advisories, vulnerability notifications.",
+            "goals": ["cybersecurity", "digital_literacy", "transparency"],
+            "scoring": {
+                "0": "No visible threat intelligence capabilities",
+                "1": "Basic threat monitoring with limited scope",
+                "2": "Active threat intelligence program with regular updates",
+                "3": "Comprehensive program with public advisories and contributions to the security community",
+                "4": "Industry-leading threat intelligence with demonstrable impact and independent validation"
+            }
+        },
+        {
+            "id": "incident_response",
+            "name": "Incident Response Readiness",
+            "description": "Preparedness for security incidents through simulation, testing, and response planning.",
+            "verification": "Tabletop exercise descriptions, after-action reports, security blog posts.",
+            "goals": ["cybersecurity", "digital_literacy"],
+            "scoring": {
+                "0": "No visible incident response planning",
+                "1": "Basic incident response procedures without regular testing",
+                "2": "Regular documented breach simulation exercises",
+                "3": "Comprehensive simulation program with third-party facilitation",
+                "4": "Advanced response capability with transparent metrics, cross-industry exercises, and continuous improvement"
+            }
+        },
+        {
+            "id": "vulnerability_management",
+            "name": "Vulnerability Management Excellence",
+            "description": "Quality and effectiveness of vulnerability discovery, disclosure, and remediation processes.\n\nStrong programs include clear researcher guidelines and transparent disclosure policies.",
+            "verification": "Program scope, researcher guidelines, response time metrics, disclosure policies.",
+            "goals": ["cybersecurity", "digital_literacy", "transparency"],
+            "scoring": {
+                "0": "No vulnerability reporting process",
+                "1": "Basic security contact with informal handling",
+                "2": "Formal vulnerability management with clear scope and processes",
+                "3": "Comprehensive program with published metrics and researcher recognition",
+                "4": "Industry-leading vulnerability program with verified response quality and security researcher testimonials"
+            }
+        },
+        {
+            "id": "data_governance_clarity",
+            "name": "Data Governance Clarity & Minimization",
+            "description": "Clear explanation of what personal data is collected and visible efforts to limit collection to only necessary data.\n\nBest practices include user-friendly privacy centers and demonstrated reduction in data collection over time.",
+            "verification": "Published privacy policies (check for plain language and specific data points listed), User interfaces showing optional vs. required fields, Data deletion options that are easy to find",
+            "goals": ["data_fairness", "privacy", "transparency"],
+            "scoring": {
+                "0": "Privacy policy is generic, vague or hard to find; excessive required fields in forms",
+                "1": "Basic privacy notice exists but uses legal jargon; some unnecessary data collection visible",
+                "2": "Clear list of data types collected with reasons provided; visible separation between required and optional data",
+                "3": "User-friendly privacy center with examples; evidence of removing previously collected data fields",
+                "4": "Excellent privacy notices; demonstrated history of reducing data collection; public commitments to data minimization with measurable targets"
+            }
+        },
+        {
+            "id": "data_subject_rights",
+            "name": "Data Subject Rights Management",
+            "description": "Systems for handling privacy rights requests efficiently and comprehensively.\n\nEffective implementation empowers users to control their data through self-service portals and timely responses.",
+            "verification": "Privacy rights portals, request metrics, process documentation.",
+            "goals": ["data_fairness", "privacy", "human_agency"],
+            "scoring": {
+                "0": "Manual or hidden rights process",
+                "1": "Basic request handling with limited automation",
+                "2": "Self-service rights portal with documented procedures",
+                "3": "Comprehensive rights management with automation and metrics",
+                "4": "Exemplary rights fulfillment with demonstrable speed, accuracy, and user satisfaction"
+            }
+        },
+        {
+            "id": "identity_verification",
+            "name": "Identity Verification Standards",
+            "description": "Robust identity verification processes with privacy-preserving methods.",
+            "verification": "Identity verification documentation, privacy impact assessments, technical specifications.",
+            "goals": ["privacy", "data_fairness"],
+            "scoring": {
+                "0": "Basic identity verification without privacy considerations",
+                "1": "Standard verification with some privacy controls",
+                "2": "Privacy-preserving verification methods with clear documentation",
+                "3": "Advanced privacy-preserving verification with independent validation",
+                "4": "Industry-leading privacy-preserving identity verification with quantifiable privacy metrics"
+            }
+        },
+        {
+            "id": "access_control",
+            "name": "Access Control Framework",
+            "description": "Comprehensive access control system with role-based and attribute-based policies.",
+            "verification": "Access control documentation, policy enforcement mechanisms, audit logs.",
+            "goals": ["cybersecurity", "privacy"],
+            "scoring": {
+                "0": "Basic access control without clear policies",
+                "1": "Standard role-based access control implementation",
+                "2": "Comprehensive access control with documented policies",
+                "3": "Advanced access control with attribute-based policies and regular audits",
+                "4": "Industry-leading access control with continuous monitoring and automated enforcement"
+            }
+        },
+        {
+            "id": "secure_development",
+            "name": "Secure Development Lifecycle",
+            "description": "Integration of security practices throughout the software development process.",
+            "verification": "Development guidelines, security reviews, automated testing results.",
+            "goals": ["cybersecurity", "digital_literacy"],
+            "scoring": {
+                "0": "No visible secure development practices",
+                "1": "Basic security reviews in development process",
+                "2": "Comprehensive secure development lifecycle with documentation",
+                "3": "Advanced security practices with automated testing and continuous integration",
+                "4": "Industry-leading secure development with quantifiable security metrics and third-party validation"
+            }
+        },
+        {
+            "id": "service_reliability",
+            "name": "Service Reliability and Resilience",
+            "description": "Systems designed for high availability and graceful degradation.",
+            "verification": "Service level agreements, incident reports, resilience testing results.",
+            "goals": ["cybersecurity", "digital_literacy"],
+            "scoring": {
+                "0": "Basic service availability without resilience planning",
+                "1": "Standard service reliability with basic monitoring",
+                "2": "Comprehensive reliability framework with documented procedures",
+                "3": "Advanced resilience with automated failover and recovery",
+                "4": "Industry-leading service reliability with quantifiable metrics and continuous improvement"
+            }
+        },
+        {
+            "id": "employee_training",
+            "name": "Employee Security Training",
+            "description": "Comprehensive security awareness and training programs for employees.",
+            "verification": "Training materials, completion rates, effectiveness assessments.",
+            "goals": ["cybersecurity", "digital_literacy"],
+            "scoring": {
+                "0": "No visible security training program",
+                "1": "Basic security awareness training",
+                "2": "Comprehensive training program with regular sessions",
+                "3": "Advanced training with role-specific modules and assessments",
+                "4": "Industry-leading training program with measurable effectiveness and continuous improvement"
+            }
+        },
+        {
+            "id": "customer_education",
+            "name": "Customer Security Education",
+            "description": "Programs to educate customers about security best practices.",
+            "verification": "Educational materials, customer feedback, engagement metrics.",
+            "goals": ["digital_literacy", "privacy"],
+            "scoring": {
+                "0": "No visible customer education program",
+                "1": "Basic security tips for customers",
+                "2": "Comprehensive educational resources with regular updates",
+                "3": "Advanced education program with interactive elements",
+                "4": "Industry-leading customer education with measurable impact and continuous improvement"
+            }
+        },
+        {
+            "id": "security_documentation",
+            "name": "Security and Privacy Documentation",
+            "description": "Clear and accessible documentation of security and privacy practices.",
+            "verification": "Documentation quality, accessibility, update frequency.",
+            "goals": ["digital_literacy", "privacy"],
+            "scoring": {
+                "0": "Minimal or unclear documentation",
+                "1": "Basic documentation of security practices",
+                "2": "Comprehensive documentation with regular updates",
+                "3": "Advanced documentation with interactive elements and translations",
+                "4": "Industry-leading documentation with user feedback and continuous improvement"
+            }
+        },
+        {
+            "id": "digital_accessibility",
+            "name": "Digital Accessibility Standards",
+            "description": "Implementation of accessibility standards in digital products and services.\n\nInclusive design ensures all users, regardless of abilities, can access and use digital products effectively.",
+            "verification": "Accessibility audits, compliance reports, user testing results.",
+            "goals": ["digital_literacy", "data_fairness", "human_agency"],
+            "scoring": {
+                "0": "No visible accessibility considerations",
+                "1": "Basic accessibility features implemented",
+                "2": "Comprehensive accessibility compliance with documentation",
+                "3": "Advanced accessibility features with regular testing",
+                "4": "Industry-leading accessibility with continuous improvement and user feedback"
+            }
+        },
+        {
+            "id": "digital_literacy_support",
+            "name": "Digital Literacy Support",
+            "description": "Programs to support users with varying levels of digital literacy.",
+            "verification": "Support materials, user feedback, effectiveness metrics.",
+            "goals": ["digital_literacy", "data_fairness"],
+            "scoring": {
+                "0": "No visible digital literacy support",
+                "1": "Basic help resources available",
+                "2": "Comprehensive support program with documentation",
+                "3": "Advanced support with personalized assistance",
+                "4": "Industry-leading digital literacy support with measurable impact"
+            }
+        },
+        {
+            "id": "responsible_ai",
+            "name": "Responsible AI Development",
+            "description": "Ethical considerations in AI system development and deployment.",
+            "verification": "AI ethics guidelines, impact assessments, monitoring systems.",
+            "goals": ["data_fairness", "privacy", "trustworthy_algorithms", "transparency"],
+            "scoring": {
+                "0": "No visible AI ethics considerations",
+                "1": "Basic AI ethics guidelines",
+                "2": "Comprehensive AI ethics framework with documentation",
+                "3": "Advanced AI ethics with regular assessments",
+                "4": "Industry-leading AI ethics with continuous monitoring and improvement"
+            }
+        },
+        {
+            "id": "stakeholder_engagement",
+            "name": "Stakeholder Engagement",
+            "description": "Active engagement with stakeholders on digital responsibility issues.\n\nMeaningful engagement includes regular consultation, transparent feedback mechanisms, and demonstrable responses to stakeholder input.",
+            "verification": "Engagement records, feedback mechanisms, response rates.",
+            "goals": ["data_fairness", "privacy", "transparency", "human_agency"],
+            "scoring": {
+                "0": "No visible stakeholder engagement",
+                "1": "Basic feedback channels available",
+                "2": "Comprehensive engagement program with documentation",
+                "3": "Advanced engagement with regular consultations",
+                "4": "Industry-leading stakeholder engagement with measurable impact"
+            }
+        },
+        {
+            "id": "algorithmic_transparency",
+            "name": "Algorithmic Transparency",
+            "description": "Transparency in algorithmic decision-making processes.\n\nComprehensive transparency includes explaining how algorithms work, what data they use, and their potential impacts on users.",
+            "verification": "Algorithm documentation, impact assessments, monitoring systems.",
+            "goals": ["data_fairness", "privacy", "transparency", "human_agency", "trustworthy_algorithms"],
+            "scoring": {
+                "0": "No visible algorithmic transparency",
+                "1": "Basic algorithm documentation",
+                "2": "Comprehensive transparency framework with documentation",
+                "3": "Advanced transparency with regular assessments",
+                "4": "Industry-leading algorithmic transparency with continuous monitoring"
+            }
+        },
+        {
+            "id": "open_source_contribution",
+            "name": "Open Source Contribution",
+            "description": "Contribution to open source security and privacy projects.",
+            "verification": "Contribution records, project impact, community engagement.",
+            "goals": ["cybersecurity", "digital_literacy"],
+            "scoring": {
+                "0": "No visible open source contributions",
+                "1": "Basic contributions to open source projects",
+                "2": "Regular contributions with documentation",
+                "3": "Advanced contributions with project leadership",
+                "4": "Industry-leading open source contributions with significant impact"
+            }
+        },
+        {
+            "id": "responsible_sunsetting",
+            "name": "Responsible Service Sunsetting",
+            "description": "Ethical considerations in service discontinuation.",
+            "verification": "Sunsetting policies, user communication, data handling.",
+            "goals": ["privacy", "data_fairness"],
+            "scoring": {
+                "0": "No visible sunsetting considerations",
+                "1": "Basic service discontinuation notice",
+                "2": "Comprehensive sunsetting plan with documentation",
+                "3": "Advanced sunsetting with user support",
+                "4": "Industry-leading sunsetting practices with comprehensive support"
+            }
+        },
+        {
+            "id": "digital_sustainability",
+            "name": "Digital Sustainability",
+            "description": "Environmental impact considerations in digital operations.",
+            "verification": "Sustainability metrics, impact assessments, improvement plans.",
+            "goals": ["data_fairness"],
+            "scoring": {
+                "0": "No visible sustainability considerations",
+                "1": "Basic energy efficiency measures",
+                "2": "Comprehensive sustainability program with documentation",
+                "3": "Advanced sustainability with regular assessments",
+                "4": "Industry-leading digital sustainability with measurable impact"
+            }
+        },
+        {
+            "id": "content_moderation",
+            "name": "Content Moderation Standards",
+            "description": "Ethical content moderation practices and policies.",
+            "verification": "Moderation policies, appeal processes, transparency reports.",
+            "goals": ["data_fairness", "privacy"],
+            "scoring": {
+                "0": "No visible content moderation",
+                "1": "Basic content filtering",
+                "2": "Comprehensive moderation framework with documentation",
+                "3": "Advanced moderation with human oversight",
+                "4": "Industry-leading content moderation with continuous improvement"
+            }
+        },
+        {
+            "id": "youth_protection",
+            "name": "Youth Protection Measures",
+            "description": "Protection of young users in digital environments.",
+            "verification": "Protection measures, age verification, monitoring systems.",
+            "goals": ["privacy", "data_fairness"],
+            "scoring": {
+                "0": "No visible youth protection measures",
+                "1": "Basic age verification",
+                "2": "Comprehensive protection framework with documentation",
+                "3": "Advanced protection with regular assessments",
+                "4": "Industry-leading youth protection with measurable impact"
+            }
+        },
+        {
+            "id": "digital_workforce",
+            "name": "Digital Workforce Rights",
+            "description": "Protection of digital workers' rights and well-being.",
+            "verification": "Worker protection policies, monitoring systems, feedback mechanisms.",
+            "goals": ["data_fairness", "privacy"],
+            "scoring": {
+                "0": "No visible worker protection measures",
+                "1": "Basic worker rights documentation",
+                "2": "Comprehensive protection framework with documentation",
+                "3": "Advanced protection with regular assessments",
+                "4": "Industry-leading worker protection with measurable impact"
+            }
+        }
+    ]
 }
